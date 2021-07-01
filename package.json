@@ -1,0 +1,24 @@
+{
+  "name": "js-tdd-course",
+  "version": "1.0.0",
+  "description": "Boblioteca do Curso JS com TDD na prática.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jefersonmmacedo/js-tdd-course.git"
+  },
+  "keywords": [
+    "js",
+    "tdd",
+    "library"
+  ],
+  "author": "Jeferson Macedo <jefersonmacedowgf@gmail.com> (https://github.com/jefersonmmacedo)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jefersonmmacedo/js-tdd-course/issues"
+  },
+  "homepage": "https://github.com/jefersonmmacedo/js-tdd-course#readme"
+}
