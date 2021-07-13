@@ -124,6 +124,7 @@ class Animal {
 
     get name() {
         console.log('Meu nome é Olaf');
+
     }
  }
 
