@@ -10,11 +10,11 @@
     "build:watch": "npm run clear && npm run build -- --watch",
     "build:umd": "./node_modules/.bin/webpack --output-filename spotify-wrapper.umd.js",
     "build:umd:min": "./node_modules/.bin/webpack --output-filename spotify-wrapper.umd.min.js -p",
-    "build:all":"npm run build:watch && build:umd && build:umd:min",
+    "build:all": "npm run build:watch && build:umd && build:umd:min",
     "lint": "./node_modules/.bin/eslint src/*.js",
     "prepush": "npm run lint && npm run test:coverage",
-    "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register",
-    "test:tdd": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register --watch",
+    "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require @babel/register",
+    "test:tdd": "npm run test -- --watch",
     "test:coverage": "nyc npm run test"
   },
   "nyc": {
@@ -46,6 +46,7 @@
   "homepage": "https://github.com/jefersonmmacedo/spotify-wrapper#readme",
   "devDependencies": {
     "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.14.8",
     "@babel/preset-env": "^7.14.8",
     "@babel/register": "^7.14.5",
     "babel-loader": "^8.2.2",
@@ -62,6 +63,7 @@
     "webpack-cli": "^4.7.2"
   },
   "dependencies": {
+    "@babel/node": "^7.14.7",
     "cross-fetch": "^3.1.4"
   }
 }

@@ -13,7 +13,7 @@ describe('Albums Spotify Wrapper', () => {
 
     beforeEach( () => {
         stubedFetch = sinon.stub(global, 'fetch');
-        promise =  stubedFetch.resolves({ json: () => {} });
+        promise =  stubedFetch.resolves({ json: () => ({ album: 'name'}) });
     });
 
     afterEach( () => {
@@ -57,9 +57,10 @@ describe('Albums Spotify Wrapper', () => {
 
         // Verifica se o dado é recebido pela promise
         it('Should return the correct data from promise', () => {
-            promise.resolves({ album: 'name'});
             const album = getAlbum('4aawyAB9vmqN3uQ7FjRGTy');
-            //expect(album.resolveValue).to.be.eql({ album: 'name'})
+            album.then((data) => {
+                expect(data).to.be.eql({ album: 'name' });
+             });
         });
     });
     // Fim GetAlbum
@@ -80,9 +81,10 @@ describe('Albums Spotify Wrapper', () => {
 
         // Verifica se o dado é recebido pela promise
         it('Should return the correct data from promise', () => {
-            promise.resolves({ Album: 'name'});
             const Albums = getAlbums(['4aawyAB9vmqN3uQ7FjRGTy', '4aawyAB9vmqN3uQ7FjRGTJ']);
-            //expect(Albums.resolveValue).to.be.eql({ Album: 'name'})
+            album.then((data) => {
+                expect(data).to.be.eql({ album: 'name' });
+             });
         });
     });
     // Fim GetAlbums
@@ -103,8 +105,9 @@ describe('Albums Spotify Wrapper', () => {
 
     // Verifica se o dado é recebido pela promise
     it('Should return the correct data from promise', () => {
-        promise.resolves({ AlbumTracks: 'name'});
         const AlbumTracks = getAlbumTracks('4aawyAB9vmqN3uQ7FjRGTy');
-        //expect(AlbumTracks.resolveValue).to.be.eql({ AlbumTracks: 'name'})
+        album.then((data) => {
+            expect(data).to.be.eql({ album: 'name' });
+         });
     });
 });
