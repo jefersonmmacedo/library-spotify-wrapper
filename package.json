@@ -1,16 +1,37 @@
 {
-  "name": "js-tdd-course",
+  "name": "spotify-wrapper",
   "version": "1.0.0",
-  "description": "Boblioteca do Curso JS com TDD na prática.",
-  "main": "index.js",
+  "description": "A wrapper to work with the Spotify Web API.](http://developer.spotify.com/web-api/).",
+  "main": "src/index.js",
+  "type": "module",
   "scripts": {
+    "clear": "rimraf lib",
+    "build": "./node_modules/.bin/babel --out-dir lib src",
+    "build:watch": "npm run clear && npm run build -- --watch",
+    "build:umd": "./node_modules/.bin/webpack --output-filename spotify-wrapper.umd.js",
+    "build:umd:min": "./node_modules/.bin/webpack --output-filename spotify-wrapper.umd.min.js -p",
+    "build:all":"npm run build:watch && build:umd && build:umd:min",
     "lint": "./node_modules/.bin/eslint src/*.js",
-    "prepush": "npm run lint",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepush": "npm run lint && npm run test:coverage",
+    "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register",
+    "test:tdd": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register --watch",
+    "test:coverage": "nyc npm run test"
+  },
+  "nyc": {
+    "functions": 80,
+    "lines": 80,
+    "check-coverage": true,
+    "reporter": [
+      "text",
+      "html"
+    ],
+    "exclude": [
+      "tests/**"
+    ]
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jefersonmmacedo/js-tdd-course.git"
+    "url": "git+https://github.com/jefersonmmacedo/spotify-wrapper.git"
   },
   "keywords": [
     "js",
@@ -20,11 +41,27 @@
   "author": "Jeferson Macedo <jefersonmacedowgf@gmail.com> (https://github.com/jefersonmmacedo)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jefersonmmacedo/js-tdd-course/issues"
+    "url": "https://github.com/jefersonmmacedo/spotify-wrapper/issues"
   },
-  "homepage": "https://github.com/jefersonmmacedo/js-tdd-course#readme",
+  "homepage": "https://github.com/jefersonmmacedo/spotify-wrapper#readme",
   "devDependencies": {
+    "@babel/cli": "^7.14.8",
+    "@babel/preset-env": "^7.14.8",
+    "@babel/register": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "chai": "^4.3.4",
     "eslint": "^7.29.0",
-    "husky": "^7.0.0"
+    "husky": "^7.0.0",
+    "mocha": "^9.0.2",
+    "node-fetch": "^2.6.1",
+    "nyc": "^15.1.0",
+    "rimraf": "^3.0.2",
+    "sinon": "^11.1.1",
+    "sinon-chai": "^3.7.0",
+    "webpack": "^5.45.1",
+    "webpack-cli": "^4.7.2"
+  },
+  "dependencies": {
+    "cross-fetch": "^3.1.4"
   }
 }

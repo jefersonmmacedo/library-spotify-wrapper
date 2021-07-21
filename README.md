@@ -1,6 +1,6 @@
-# Project Title
+# Spotify Wrapper
 
-One Paragraph of project description goes here
+A wrapper to work with the Spotify Web API.](http://developer.spotify.com/web-api/)
 
 ## Getting Started
 
@@ -68,7 +68,7 @@ Please read [CONTRIBUTING.md](https://github.com/jefersonmmacedo/js-tdd-course/b
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/jefersonmmacedo/js-tdd-course/). 
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/jefersonmmacedo/js-tdd-course/).
 
 ## Authors
 

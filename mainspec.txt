@@ -1,0 +1,137 @@
+describe('Main', function () {
+    describe('Method A', function() {
+        context('Case 1', function() {
+            it('should happen ... Case 1', function () {
+                // espera o que aconteça - teste
+                // Entra dados ou métodos -> dum(2, 2)
+                // Esperar retornar -> (4) => true | (3) => false => broken test
+                throw new Error('just on error')
+            });
+        });
+
+        context.skip('Case 2', function() {
+            it('should happen ... Case 2', function () {
+                // espera o que aconteça - teste
+                // Entra dados ou métodos -> dum(2, 2)
+                // Esperar retornar -> (4) => true | (3) => false => broken test
+            });
+
+            it('should happen ...Case 3', function () {
+                // espera o que aconteça - teste
+                // Entra dados ou métodos -> dum(2, 2)
+                // Esperar retornar -> (4) => true | (3) => false => broken test
+            });
+        });
+    });
+
+    describe('Method B', function() {
+        context('Case 1', function() {
+            it('should happen ... Case 1', function () {
+                // espera o que aconteça - teste
+                // Entra dados ou métodos -> dum(2, 2)
+                // Esperar retornar -> (4) => true | (3) => false => broken test
+                throw new Error('just on error')
+            });
+        });
+    });
+});
+
+
+<-- BEFORE E AFTER / BEFOREEACH E AFTEREACH -->
+describe('Main', function () {
+    var arr;
+    // Roda uma vez antes de cada bloco
+    before(function() {
+
+    });
+
+    // Roda uma vez depois de cada bloco
+    after(function() {
+
+   });
+
+    // Roda todas as vezes antes de cada bloco
+    beforeEach(function() {
+        arr = [1, 2, 3];
+    });
+
+    // Roda todas as vezes depois de cada bloco
+    afterEach(function() {
+
+    });
+
+
+
+    it('should have a size 4 when push another value to the array', function() {
+
+       arr.push(4);
+       console.log(arr.length) //4
+    });
+
+    it('shouls have a size 2 when pop a value from the array', function() {
+
+        arr.pop();
+        console.log(arr.length) //2
+    });
+
+    it('shouls have the value 3 use pop in the array', function() {
+
+        console.log(arr.pop() === 3) //true
+    });
+
+});
+
+
+
+<----- METODOS DO CHAI ----->
+var expect = require('chai').expect;
+
+
+describe('Main', function () {
+    var arr;
+    // Roda uma vez antes de cada bloco
+    before(function() {
+
+    });
+
+    // Roda uma vez depois de cada bloco
+    after(function() {
+
+   });
+
+    // Roda todas as vezes antes de cada bloco
+    beforeEach(function() {
+        arr = [1, 2, 3];
+    });
+
+    // Roda todas as vezes depois de cada bloco
+    afterEach(function() {
+
+    });
+
+    it('should be an array', function(){
+        expect(arr).to.be.a('array')
+    })
+
+
+    it('should have a size 4 when push another value to the array', function() {
+
+       arr.push(4);
+       expect(arr).to.have.lengthOf(4);
+       console.log(arr)
+    });
+
+    it('shouls have a size 2 when pop a value from the array', function() {
+
+        arr.pop();
+        expect(arr).to.not.include(3);
+        console.log(arr)
+    });
+
+    it('shouls have the value 3 use pop in the array', function() {
+
+        expect(arr).to.have.lengthOf(3);
+        console.log(arr)
+    });
+
+});
