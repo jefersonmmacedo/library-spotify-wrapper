@@ -1,16 +1,17 @@
 {
-  "name": "spotify-wrapper",
+  "name": "library-spotify-wrapper",
   "version": "1.0.0",
   "description": "A wrapper to work with the Spotify Web API.](http://developer.spotify.com/web-api/).",
   "main": "src/index.js",
-  "type": "module",
+  "type":"module",
+
   "scripts": {
     "clear": "rimraf lib",
     "build": "./node_modules/.bin/babel --out-dir lib src",
     "build:watch": "npm run clear && npm run build -- --watch",
-    "build:umd": "./node_modules/.bin/webpack --output-filename spotify-wrapper.umd.js",
-    "build:umd:min": "./node_modules/.bin/webpack --output-filename spotify-wrapper.umd.min.js -p",
-    "build:all": "npm run build:watch && build:umd && build:umd:min",
+    "build:umd": "./node_modules/.bin/webpack --output-filename library-spotify-wrapper.umd.js ",
+    "build:umd:min": "./node_modules/.bin/webpack --output-filename library-spotify-wrapper.umd.min.js -p",
+    "build:all": "npm run build:watch && build:umd && build:umd:min ",
     "lint": "./node_modules/.bin/eslint src/*.js",
     "prepush": "npm run lint && npm run test:coverage",
     "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require @babel/register",
@@ -31,7 +32,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jefersonmmacedo/spotify-wrapper.git"
+    "url": "git+https://github.com/jefersonmmacedo/library-spotify-wrapper.git"
   },
   "keywords": [
     "js",
@@ -41,9 +42,9 @@
   "author": "Jeferson Macedo <jefersonmacedowgf@gmail.com> (https://github.com/jefersonmmacedo)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jefersonmmacedo/spotify-wrapper/issues"
+    "url": "https://github.com/jefersonmmacedo/library-spotify-wrapper/issues"
   },
-  "homepage": "https://github.com/jefersonmmacedo/spotify-wrapper#readme",
+  "homepage": "https://github.com/jefersonmmacedo/library-spotify-wrapper#readme",
   "devDependencies": {
     "@babel/cli": "^7.14.8",
     "@babel/core": "^7.14.8",

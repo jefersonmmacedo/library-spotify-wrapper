@@ -14,7 +14,7 @@ describe('Search Spotify Wrapper', () => {
 
         beforeEach( () => {
             fetchedStub = sinon.stub(global, 'fetch');
-            promise =  fetchedStub.resolves({ json: () => {} });
+            promise =  fetchedStub.resolves({ json: () => ({ album: 'name'}) });
         });
 
         afterEach( () => {
@@ -23,12 +23,6 @@ describe('Search Spotify Wrapper', () => {
 
 
     describe('Smoke tests', () => {
-        //Search (Genérico) -> + de 1 tipo
-        //Search Albuns
-        //Search Artists
-        //Search Tracks
-        //Search Playlists
-
         it('Should exists the search method', () => {
             expect(search).to.exist;
         });
@@ -85,7 +79,9 @@ describe('Search Spotify Wrapper', () => {
 
         const artists = search('nickelback', 'artist');
 
-        //expect(artists.resolveValue).to.be.eql({ body: 'json'})
+        artists.then((data) => {
+            expect(data).to.be.eql({ album: 'name' });
+         });
     })
 
     });

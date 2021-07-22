@@ -5,7 +5,7 @@ import sinonChai from "sinon-chai";
 import {getAlbum, getAlbums, getAlbumTracks} from '../src/album.js'
 
 chai.use(sinonChai);
-global.fetch = require('node-fetch')
+global.fetch = require('node-fetch');
 
 describe('Albums Spotify Wrapper', () => {
     let  stubedFetch;
@@ -82,7 +82,7 @@ describe('Albums Spotify Wrapper', () => {
         // Verifica se o dado é recebido pela promise
         it('Should return the correct data from promise', () => {
             const Albums = getAlbums(['4aawyAB9vmqN3uQ7FjRGTy', '4aawyAB9vmqN3uQ7FjRGTJ']);
-            album.then((data) => {
+            Albums.then((data) => {
                 expect(data).to.be.eql({ album: 'name' });
              });
         });
@@ -106,7 +106,7 @@ describe('Albums Spotify Wrapper', () => {
     // Verifica se o dado é recebido pela promise
     it('Should return the correct data from promise', () => {
         const AlbumTracks = getAlbumTracks('4aawyAB9vmqN3uQ7FjRGTy');
-        album.then((data) => {
+        AlbumTracks.then((data) => {
             expect(data).to.be.eql({ album: 'name' });
          });
     });
